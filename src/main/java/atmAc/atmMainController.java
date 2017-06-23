@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import atmAc.ATMAccount;
 import atmAc.atmAcRepository;
 
+
 @Controller    // This means that this class is a Controller
 @RequestMapping(path="/atm") // This means URL's start with /atm (after Application path)
 
@@ -22,58 +23,25 @@ public class atmMainController {
 	private atmAcRepository atmAcRepository;
 	private double amtBalCurr;
 
-	@GetMapping(path="/deposit") // Map ONLY GET Requests
-	public @ResponseBody String Deposit (@RequestParam double depAmt){
+	@GetMapping(path="/add") // Map ONLY GET Requests
+	public @ResponseBody String addNewATM (@RequestParam String acNum
+			, @RequestParam String transType, @RequestParam String accAmt
+			, @RequestParam String comments){
 		// @ResponseBody means the returned String is the response, not a view name
 		// @RequestParam means it is a parameter from the GET or POST request
-		double amtDeposit;
+		//String amtDeposit;
 		
 	    ATMAccount c = new ATMAccount();
-		amtDeposit = depAmt;
-		amtBalCurr += amtDeposit;
-	    c.setAccAmount(amtBalCurr);
-	    atmAcRepository.save(c);
-		
-		return "Deposit";
-	}
-	
-	@GetMapping(path="/withdrawal") // Map ONLY GET Requests
-	public @ResponseBody double Withdrawal (@RequestParam double withdrawAmt){
-		// @ResponseBody means the returned String is the response, not a view name
-		// @RequestParam means it is a parameter from the GET or POST request
-		double amtWithdraw;
-	
-	    ATMAccount c = new ATMAccount();
-
-		amtWithdraw = withdrawAmt; //Amount withdrawn from form
-	    amtBalCurr -= amtWithdraw;
-		c.setAccAmount(amtBalCurr);
+	    c.setAccNum(acNum);
+	    c.setTransType(transType);
+		c.setAccAmount(accAmt);
+		c.settxtComment(comments);
 		atmAcRepository.save(c);
 		
-		return amtBalCurr;
-	}
-	
-	
-	@GetMapping(path="/balance") // Map ONLY GET Requests
-	public @ResponseBody double Balance (@RequestParam double balAmt){
-		// @ResponseBody means the returned String is the response, not a view name
-		// @RequestParam means it is a parameter from the GET or POST request
-		double lastBal;
-	
-	    ATMAccount c = new ATMAccount();
-	    lastBal = 0.00;
-	    balAmt = c.getAccAmount();
-	    return balAmt;
-
-	}
-	
+		return "htmtranshistory";
 		
-	@GetMapping(path="/all")
-	public @ResponseBody Iterable<ATMAccount> getAllTransHistory() {
-		// This returns a JSON or XML with the users
-		return atmAcRepository.findAll();
 	}
-		
+	
 }
 	
 	

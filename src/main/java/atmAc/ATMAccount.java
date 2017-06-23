@@ -3,9 +3,9 @@ package atmAc;
 public class ATMAccount {
 
 	private long accId;
-	private int accNum;
+	private String accNum;
 	private String transType;
-	private double accAmount;
+	private String accAmount;
 	private String txtComment;
 	
 	
@@ -17,11 +17,11 @@ public class ATMAccount {
 		this.accId = accId;
 	}
 	
-	public int getAccNum() {
+	public String getAccNum() {
 		return accNum;
 	}
 	
-	public void setAccNum(int accNum) {
+	public void setAccNum(String accNum) {
 		this.accNum = accNum;
 	}
 	
@@ -33,11 +33,11 @@ public class ATMAccount {
 		this.transType = transType;
 	}
 		
-	public double getAccAmount() {
+	public String getAccAmount() {
 		return accAmount;
 	}
 	
-	public void setAccAmount(double accAmount) {
+	public void setAccAmount(String accAmount) {
 		this.accAmount = accAmount;
 	}
 	
