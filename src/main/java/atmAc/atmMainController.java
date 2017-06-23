@@ -34,11 +34,11 @@ public class atmMainController {
 	    c.setAccAmount(amtBalCurr);
 	    atmAcRepository.save(c);
 		
-		return "Deposit complete. Balance is: " + amtBalCurr;
+		return "Deposit";
 	}
 	
-	@GetMapping(path="/withdraw") // Map ONLY GET Requests
-	public @ResponseBody String Withdrawal (@RequestParam double withdrawAmt){
+	@GetMapping(path="/withdrawal") // Map ONLY GET Requests
+	public @ResponseBody double Withdrawal (@RequestParam double withdrawAmt){
 		// @ResponseBody means the returned String is the response, not a view name
 		// @RequestParam means it is a parameter from the GET or POST request
 		double amtWithdraw;
@@ -50,26 +50,34 @@ public class atmMainController {
 		c.setAccAmount(amtBalCurr);
 		atmAcRepository.save(c);
 		
-		return "Withdrawal complete. Balance is: " + amtBalCurr;
+		return amtBalCurr;
 	}
 	
 	
 	@GetMapping(path="/balance") // Map ONLY GET Requests
-	public @ResponseBody String Balance (@RequestParam double balAmt){
+	public @ResponseBody double Balance (@RequestParam double balAmt){
 		// @ResponseBody means the returned String is the response, not a view name
 		// @RequestParam means it is a parameter from the GET or POST request
 		double lastBal;
 	
 	    ATMAccount c = new ATMAccount();
 	    lastBal = 0.00;
-	    return "Your current balance is: $" + amtBalCurr;
+	    balAmt = c.getAccAmount();
+	    return balAmt;
 
 	}
 	
+		
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<ATMAccount> getAllTransHistory() {
 		// This returns a JSON or XML with the users
 		return atmAcRepository.findAll();
 	}
-	
+		
 }
+	
+	
+	
+	
+	
+	
