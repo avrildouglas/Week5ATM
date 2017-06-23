@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> Deposit</h1>
+<form action="#" th:action="@{/atm}" th:object="${objdeposit}" method="post">
+    <p>Deposit Amount: <input type="double" th:field="*{deposit}" /></p>     
+	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

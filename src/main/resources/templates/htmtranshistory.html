@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> Transaction History</h1>
+<form action="#" th:action="@{/atm}" th:object="${ChefInput}" method="post">
+    <p>Food: <input type="text" th:field="*{food}" /></p>      
+	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
