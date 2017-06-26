@@ -1,4 +1,4 @@
-package atmAc;
+package atmAC;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import atmAc.ATMAccount;
-import atmAc.atmAcRepository;
+import atmAC.ATMAccount;
+import atmAC.atmAcRepository;
 
 
 @Controller    // This means that this class is a Controller
@@ -38,14 +38,14 @@ public class atmMainController {
 		c.settxtComment(comments);
 		atmAcRepository.save(c);
 		
-		return "htmtranshistory";
+		return "Saved";
 		
 	}
 	
-}
+	@GetMapping(path="/all") 
+	public @ResponseBody Iterable<ATMAccount>getAllATM()
 	
-	
-	
-	
-	
-	
+	{
+		return atmAcRepository.findAll();
+	}
+}	

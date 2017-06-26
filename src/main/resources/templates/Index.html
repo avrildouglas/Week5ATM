@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ATM</title>
+</head>
+<body>
+   <h1>Main Menu</h1><br>
+
+ <form action="#" th:action="@{/atm}" th:object="${objBalance.accAmt}" method="post">
+  Account Number: <input type="text" name="account" value="account number"><br><br>
+ 
+ <input type="radio" name="deposit" value="deposit"><a href="#">Deposit</a><br>
+ <input type="radio" name="withdraw" value="withdrawal"><a href="#">Withdrawal</a><br>
+ <input type="radio" name="transhistory" value="transhistory"><a href="#">Display Transaction History</a><br>
+<input type="radio" name="balance" value="balance"><a href="#">Display Balance</a><br>    
+ <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form> 
+</body>
+</html>

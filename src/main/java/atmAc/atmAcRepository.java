@@ -1,4 +1,4 @@
-package atmAc;
+package atmAC;
 
 import org.springframework.data.repository.CrudRepository;
 

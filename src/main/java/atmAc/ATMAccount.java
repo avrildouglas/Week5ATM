@@ -1,4 +1,4 @@
-package atmAc;
+package atmAC;
 
 public class ATMAccount {
 

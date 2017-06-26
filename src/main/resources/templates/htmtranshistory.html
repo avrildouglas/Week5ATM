@@ -6,9 +6,12 @@
 </head>
 <body>
 <h1> Transaction History</h1>
-<form action="#" th:action="@{/atm}" th:object="${ChefInput}" method="post">
-    <p>Food: <input type="text" th:field="*{food}" /></p>      
-	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-</form>
+<div th:each="aFoodDiaryObj : ${foodDiaries}">  
+<!-- now we have access to each item  -->  
+<div th:text="${'I had ' + {aFoodDiaryObj.food} + ' for ' + {aFoodDiaryObj.mealType} + '
+ at ' + {aFoodDiaryObj.timeOfDay}}"></div></div>
 </body>
 </html>
+
+
+

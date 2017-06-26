@@ -5,9 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> Withdrawal</h1>
-<form action="#" th:action="@{/atm}" th:object="${objWithdrawal.accAmt}" method="post">
-    <p>Food: <input type="text" th:field="*{withdrawal}" /></p>      
+<h1> Balance</h1>
+<form action="#" th:action="@{/atm}" th:object="${ChefInput}" method="post">
+    <p>Food: <input type="text" th:field="*{food}" /></p>      
 	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 </body>
